@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './join.scss';
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 
 
 const Join = () => {
-  const [name, setName] = useState('hello');
+  const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+
+  console.log(room)
+  console.log(name)
 
   return(
     <div className='join'>
@@ -14,20 +18,22 @@ const Join = () => {
           <Row className="justify-content-md-center">
             <h1>Join</h1>
           </Row>
-          <Form >
+          <Form onSubmit={event => (!name || !room) ? event.preventDefault() : null} >
             <Row className="justify-content-md-center">
-              <Form.Group controllId="name">
-                <Form.Control placeholder="Name" type='text' onchange={(event) => setName(event.target.value) }/>
+              <Form.Group controllid="name">
+                <Form.Control placeholder="Name" type='text' onChange={(event) => setName(event.target.value) }/>
               </Form.Group>
             </Row>
             <Row className="justify-content-md-center">
-              <Form.Group controllId="room">
-                <Form.Control placeholder="Room" type='text' onchange={(event) => setRoom(event.target.value)}/>
+              <Form.Group controllid="room">
+                <Form.Control placeholder="Room" type='text' onChange={(event) => setRoom(event.target.value)}/>
               </Form.Group>
             </Row>
             <Row className="justify-content-md-center">
-              <Link>
-                <Button className="form btn btn-secondary" variant="primary" type='submit'>Sign In</Button>
+              <Link to={`/chat?name=${name}&room=${room}`}>
+                <Button className="form btn btn-secondary" type='submit' variant="primary">
+                  Sign In
+                </Button>
               </Link>
             </Row>
           </Form>
