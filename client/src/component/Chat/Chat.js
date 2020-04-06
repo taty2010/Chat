@@ -3,6 +3,9 @@ import './chat.scss'
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import InfoBar from './infobar/Infobar';
+import Input from './input/Input';
+import Messages from './messages/Messages';
+
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 
 let socket;
@@ -57,16 +60,9 @@ const Chat = ({location}) => {
           <Col>
             {/* <Row className="justify-content-md-center"> */}
               <InfoBar room={room}/>
+              <Messages messages={messages} name={name}/>
+              <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
             {/* </Row> */}
-            <Row className="justify-content-md-center">
-              <Form>
-                <input 
-                value={message} 
-                onChange={(event) => setMessage(event.target.value)}
-                onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
-                />
-              </Form>
-            </Row>
           </Col>
         </Row>
         <Row>
