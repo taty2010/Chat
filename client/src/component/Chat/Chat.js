@@ -15,6 +15,7 @@ const Chat = ({location}) => {
   const [room, setRoom] = useState('');
   const [messages, setMessages] = useState([]); //Stores all messages
   const [message, setMessage] = useState('');
+  const [users, setUsers] = useState('');
   const [MainTheme, setMainTheme] = useState('main')
   const ENDPOINT = 'localhost:5000'
 
@@ -23,6 +24,7 @@ const Chat = ({location}) => {
 
     socket = io(ENDPOINT);
 
+    
     setName(name);
     setRoom(room);
 
@@ -33,15 +35,20 @@ const Chat = ({location}) => {
     return () => {
       socket.emit('disconnect');
 
-      socket.off()
+      socket.disconnect()
     }
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
     socket.on('message', (message) => {
       setMessages([...messages, message])
+    });
+
+    socket.on("roomData", ({ users }) => {
+      setUsers(users);
     })
   }, [messages]);
+
 
   //Function for sending messages
   const sendMessage = (e) => {
@@ -52,7 +59,7 @@ const Chat = ({location}) => {
     }
   }
 
-  console.log(message, messages);
+  console.log(users.name);
   return(
     <div className={`outerContainer ${MainTheme}`}>
       <Container fluid='sm'>
@@ -63,6 +70,12 @@ const Chat = ({location}) => {
               <Messages messages={messages} name={name}/>
               <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
             {/* </Row> */}
+          </Col>
+          <Col md={2}>
+            <h3>Users</h3>
+            {Object.values(users).map((users) =>
+              (<p>{users.name}</p>)
+            )}
           </Col>
         </Row>
         <Row>

@@ -8,7 +8,7 @@ const Messages = ({messages, name}) => {
 
   return(
     <ScrollToBottom>
-      <Row className="justify-content-center chatBox">
+      <Row className="chatBox">
           {messages.map((message, i) => (
           <div key={i}><Message message={message} name={name} /></div>
         ))}
