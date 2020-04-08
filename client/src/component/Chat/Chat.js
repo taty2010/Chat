@@ -5,9 +5,9 @@ import io from 'socket.io-client';
 import InfoBar from './infobar/Infobar';
 import Input from './input/Input';
 import Messages from './messages/Messages';
-import RgbShift, {Rgb} from './RgbShift'
+import RgbShift from './RgbShift'
 
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 
 let socket;
 
@@ -49,7 +49,7 @@ const Chat = ({location}) => {
     socket.on("roomData", ({ users }) => {
       setUsers(users);
     });
-    
+
   }, [messages]);
 
 

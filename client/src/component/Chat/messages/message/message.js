@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 import './message.scss'
 import ReactEmoji from 'react-emoji';
 

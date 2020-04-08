@@ -1,6 +1,6 @@
 import React from 'react';
 import './infobar.scss';
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 
 const InfoBar = ({room}) => {
 
@@ -8,7 +8,7 @@ const InfoBar = ({room}) => {
     // <Container fluid='xl' className='text-center infobar'>
       <Row className="justify-content-md-center text-center infobar">
         <Col className='leftContainer'>
-          <i className='onlineIcon' className="fas fa-smile"></i>
+          <i className="fas fa-smile onlineIcon"></i>
         </Col>
         <Col className='middleContainer'>
           <h3>{room}</h3>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 import './Messages.scss';
 import Message from './message/message';
 import ScrollToBottom from 'react-scroll-to-bottom';
