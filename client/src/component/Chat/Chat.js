@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 import InfoBar from './infobar/Infobar';
 import Input from './input/Input';
 import Messages from './messages/Messages';
+import RgbShift, {Rgb} from './RgbShift'
 
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 
@@ -59,12 +60,13 @@ const Chat = ({location}) => {
     }
   }
 
-  console.log(users.name);
   return(
+    <>
+    <RgbShift onload={(e) => Rgb(e)}/>
     <div className={`outerContainer ${MainTheme}`}>
       <Container fluid='sm'>
         <Row className="innerContainer">
-          <Col>
+          <Col className="chatArea">
             {/* <Row className="justify-content-md-center"> */}
               <InfoBar room={room}/>
               <Messages messages={messages} name={name}/>
@@ -79,18 +81,18 @@ const Chat = ({location}) => {
           </Col>
         </Row>
         <Row>
-          <Col xs={3} className='themesContainer'>
+          {/* <Col xs={3} className='themesContainer'>
             <h3>Backgrounds</h3>
             <ul>
               <li className={MainTheme === 'main' ? 'activeTheme' : ''} onClick={() => setMainTheme('main')}>Main</li>
               <li className={MainTheme === 'mountain' ? 'activeTheme' : ''} onClick={() => setMainTheme('mountain')}>Mountain</li>
               <li className={MainTheme === 'galaxy' ? 'activeTheme' : ''}  onClick={() => setMainTheme('galaxy')}>Galaxy</li>
             </ul>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </div>
-
+    </>
   )
 };
 
