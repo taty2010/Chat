@@ -4,7 +4,7 @@ import './join.scss';
 import {Form, Button, Container, Row, Col} from 'react-bootstrap';
 
 
-const Join = () => {
+const Join = (props) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
 
@@ -18,7 +18,7 @@ const Join = () => {
           <Row className="justify-content-md-center">
             <h1>Join</h1>
           </Row>
-          <Form onSubmit={event => (!name || !room) ? event.preventDefault() : null} >
+          <Form onSubmit={event => (!name || !room) ? event.preventDefault() : props.history.push('/')} >
             <Row className="justify-content-md-center">
               <Form.Group controllid="name">
                 <Form.Control placeholder="Name" type='text' onChange={(event) => setName(event.target.value) }/>
