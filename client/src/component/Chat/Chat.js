@@ -29,8 +29,10 @@ const Chat = ({location}) => {
     setName(name);
     setRoom(room);
 
-    socket.emit('join', {name, room}, () => {
-      
+    socket.emit('join', {name, room}, (error) => {
+      if(error) {
+        alert(error)
+      }
     });
     // console.log(socket)
     return () => {
@@ -79,16 +81,6 @@ const Chat = ({location}) => {
               (<p>{users.name}</p>)
             )}
           </Col>
-        </Row>
-        <Row>
-          {/* <Col xs={3} className='themesContainer'>
-            <h3>Backgrounds</h3>
-            <ul>
-              <li className={MainTheme === 'main' ? 'activeTheme' : ''} onClick={() => setMainTheme('main')}>Main</li>
-              <li className={MainTheme === 'mountain' ? 'activeTheme' : ''} onClick={() => setMainTheme('mountain')}>Mountain</li>
-              <li className={MainTheme === 'galaxy' ? 'activeTheme' : ''}  onClick={() => setMainTheme('galaxy')}>Galaxy</li>
-            </ul>
-          </Col> */}
         </Row>
       </Container>
     </div>

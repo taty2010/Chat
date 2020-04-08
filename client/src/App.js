@@ -9,7 +9,7 @@ const App = () => {
 
   return(
   <Router>
-    <Route path="/" exact render={(props) => {
+    <Route exact path="/" render={(props) => {
       return( <Join {...props}/>)
       }}/>
     <Route path="/chat" component={Chat}/>
