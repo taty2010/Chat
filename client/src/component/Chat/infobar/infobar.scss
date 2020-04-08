@@ -1,0 +1,20 @@
+.infobar{
+  background: #2a274f;
+  border: 0.2px solid #fa1897;
+  border-bottom: none;
+  .leftContainer{
+    i{
+      color: rgb(108, 253, 108);
+    }
+  }
+  .middleContainer{
+    h3{
+      color: white;
+    }
+  }
+  .rightContainer{
+    i{
+      color: #fa1897;
+    }
+  }
+}
