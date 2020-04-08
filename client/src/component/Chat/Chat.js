@@ -17,8 +17,8 @@ const Chat = ({location}) => {
   const [messages, setMessages] = useState([]); //Stores all messages
   const [message, setMessage] = useState('');
   const [users, setUsers] = useState('');
-  const [MainTheme, setMainTheme] = useState('main')
-  const ENDPOINT = 'https://taty-chat-app.herokuapp.com/'
+  const [MainTheme, setMainTheme] = useState('main');
+  const ENDPOINT = 'https://taty-chat-app.herokuapp.com/';
 
   useEffect(() => {
     const {name, room} = queryString.parse(location.search);
@@ -30,7 +30,7 @@ const Chat = ({location}) => {
     setRoom(room);
 
     socket.emit('join', {name, room}, () => {
-
+      
     });
     // console.log(socket)
     return () => {

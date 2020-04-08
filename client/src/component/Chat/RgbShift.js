@@ -32,13 +32,13 @@ export const Rgb = () => {
 const RgbShift = () => {
   return (
     <div>
-      <div id="rbgShiftSlider" class="rgbShiftSlider" />
+      <div id="rbgShiftSlider" className="rgbShiftSlider" />
       <nav className=".scene-nav">
         <h3>Backgrounds</h3>
-        <a onFocus={() => Rgb()} href="#" class="scene-nav prev" data-nav="previous">
+        <a onFocus={() => Rgb()} href="#" className="scene-nav prev" data-nav="previous">
           Prev
         </a>
-        <a onFocus={() => Rgb()} href="#" class="scene-nav next" data-nav="next">
+        <a onFocus={() => Rgb()} href="#" className="scene-nav next" data-nav="next">
           Next
         </a>
       </nav>
