@@ -61,7 +61,7 @@ const Chat = ({location}) => {
   }
 
   return(
-    <>
+    <div>
     <RgbShift/>
     <div className={`outerContainer ${MainTheme}`}>
       <Container fluid='sm'>
@@ -92,7 +92,7 @@ const Chat = ({location}) => {
         </Row>
       </Container>
     </div>
-    </>
+    </div>
   )
 };
 
