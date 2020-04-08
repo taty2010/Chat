@@ -35,11 +35,10 @@ const Chat = ({location}) => {
       }
     });
     // console.log(socket)
-    return () => {
-      socket.emit('disconnect');
+      socket.emit('disconnect', {name, room}, (error) => {;
 
       socket.disconnect()
-    }
+    })
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
