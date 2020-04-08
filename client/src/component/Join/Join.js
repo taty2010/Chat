@@ -8,8 +8,8 @@ const Join = (props) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
 
-  console.log(room)
-  console.log(name)
+  // console.log(room)
+  // console.log(name)
 
   return(
     <div className='join'>

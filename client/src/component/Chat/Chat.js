@@ -34,11 +34,11 @@ const Chat = ({location}) => {
         alert(error)
       }
     });
-    // console.log(socket)
-      socket.emit('disconnect', {name, room}, (error) => {;
-
+    
+    socket.emit('disconnect', {name, room}, (error) => {;
       socket.disconnect()
     })
+
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
@@ -48,7 +48,8 @@ const Chat = ({location}) => {
 
     socket.on("roomData", ({ users }) => {
       setUsers(users);
-    })
+    });
+    
   }, [messages]);
 
 

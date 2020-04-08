@@ -9,7 +9,7 @@ const Message = ({message: {user, text}, name}) => {
   const trimmedName = name.trim().toLowerCase();
 
   if(user === trimmedName){
-    return CurrentUser = true;
+    CurrentUser = true;
   }
 
   return (
