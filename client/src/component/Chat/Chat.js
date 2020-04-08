@@ -77,9 +77,9 @@ const Chat = ({location}) => {
           </Col>
           <Col md={2}>
             <h3>Users</h3>
-            {Object.values(users).map((users) =>
-              (<p>{users.name}</p>)
-            )}
+            {Object.values(users).map((users) => (
+                <p>{users.name}</p>
+            ))}
           </Col>
         </Row>
       </Container>
