@@ -34,7 +34,7 @@ const RgbShift = () => {
     <div>
       <div id="rbgShiftSlider" class="rgbShiftSlider" />
       <nav className=".scene-nav">
-        <h3 className='backgroundtext'>Backgrounds</h3>
+        <h3>Backgrounds</h3>
         <a onFocus={() => Rgb()} href="#" class="scene-nav prev" data-nav="previous">
           Prev
         </a>
