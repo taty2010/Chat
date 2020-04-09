@@ -1,7 +1,4 @@
 import React from 'react';
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
-
-const body = document.querySelectorAll('#rbgShiftSlider');
 
 var images = [
   "https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
@@ -35,12 +32,12 @@ const RgbShift = () => {
       <div id="rbgShiftSlider" className="rgbShiftSlider" />
       <nav className=".scene-nav">
         <h3>Backgrounds</h3>
-        <a onFocus={() => Rgb()} href="#" className="scene-nav prev" data-nav="previous">
+        <button onFocus={() => Rgb()} className="scene-nav prev" data-nav="previous">
           Prev
-        </a>
-        <a onFocus={() => Rgb()} href="#" className="scene-nav next" data-nav="next">
+        </button>
+        <button onFocus={() => Rgb()} className="scene-nav next" data-nav="next">
           Next
-        </a>
+        </button>
       </nav>
     </div>
   );

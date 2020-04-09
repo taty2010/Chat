@@ -5,9 +5,9 @@ import io from 'socket.io-client';
 import InfoBar from './infobar/Infobar';
 import Input from './input/Input';
 import Messages from './messages/Messages';
-import RgbShift, {Rgb} from './RgbShift'
+import RgbShift from './RgbShift'
 
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 
 let socket;
 
@@ -29,15 +29,16 @@ const Chat = ({location}) => {
     setName(name);
     setRoom(room);
 
-    socket.emit('join', {name, room}, () => {
-      
+    socket.emit('join', {name, room}, (error) => {
+      if(error) {
+        alert(error)
+      }
     });
-    // console.log(socket)
-    return () => {
-      socket.emit('disconnect');
-
+    
+    socket.emit('disconnect', {name, room}, (error) => {;
       socket.disconnect()
-    }
+    })
+
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
@@ -47,7 +48,8 @@ const Chat = ({location}) => {
 
     socket.on("roomData", ({ users }) => {
       setUsers(users);
-    })
+    });
+
   }, [messages]);
 
 
@@ -61,8 +63,8 @@ const Chat = ({location}) => {
   }
 
   return(
-    <>
-    <RgbShift onload={(e) => Rgb(e)}/>
+    <div>
+    <RgbShift/>
     <div className={`outerContainer ${MainTheme}`}>
       <Container fluid='sm'>
         <Row className="innerContainer">
@@ -75,24 +77,14 @@ const Chat = ({location}) => {
           </Col>
           <Col md={2}>
             <h3>Users</h3>
-            {Object.values(users).map((users) =>
-              (<p>{users.name}</p>)
-            )}
+            {Object.values(users).map((users) => (
+                <p>{users.name}</p>
+            ))}
           </Col>
-        </Row>
-        <Row>
-          {/* <Col xs={3} className='themesContainer'>
-            <h3>Backgrounds</h3>
-            <ul>
-              <li className={MainTheme === 'main' ? 'activeTheme' : ''} onClick={() => setMainTheme('main')}>Main</li>
-              <li className={MainTheme === 'mountain' ? 'activeTheme' : ''} onClick={() => setMainTheme('mountain')}>Mountain</li>
-              <li className={MainTheme === 'galaxy' ? 'activeTheme' : ''}  onClick={() => setMainTheme('galaxy')}>Galaxy</li>
-            </ul>
-          </Col> */}
         </Row>
       </Container>
     </div>
-    </>
+    </div>
   )
 };
 

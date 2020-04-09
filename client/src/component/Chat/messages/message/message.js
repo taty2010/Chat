@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button, Container, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 import './message.scss'
 import ReactEmoji from 'react-emoji';
 
@@ -13,7 +13,8 @@ const Message = ({message: {user, text}, name}) => {
   }
 
   return (
-    CurrentUser ? (
+    <div>
+    {CurrentUser ? (
       <Row className=" text-center chatMessage left">
         <Col className='text' md='4'>
           <p>{ReactEmoji.emojify(text)}</p>
@@ -31,7 +32,8 @@ const Message = ({message: {user, text}, name}) => {
           <p>{ReactEmoji.emojify(text)}</p>
         </Col>
       </Row>
-    )
+    )}
+    </div>
   )
 }
 
