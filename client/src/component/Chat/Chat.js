@@ -21,7 +21,7 @@ const Chat = ({location}) => {
   const ENDPOINT = 'https://taty-chat-app.herokuapp.com/';
 
   useEffect(() => {
-    const {name, room} = queryString.parse(location.search);
+    const {name, room} = queryString.parse(window.location.search);
 
     socket = io(ENDPOINT);
 
