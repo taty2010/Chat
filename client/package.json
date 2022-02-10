@@ -11,7 +11,7 @@
     "cli": "^1.0.1",
     "jquery": "^3.4.1",
     "netlify": "^4.0.4",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "popper.js": "^1.16.1",
     "query-string": "^6.11.1",
     "react": "^16.13.1",
